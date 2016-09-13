@@ -4,9 +4,12 @@
   "description": "React and Redux demo application",
   "scripts":{
     "prestart":"babel-node tools/startMessage.js",
-    "start": "babel-node tools/server.js",
+    "start": "npm-run-all --parallel start:server lint:watch test:watch",
+    "start:server": "babel-node tools/server.js",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
-    "lint:watch": "npm run lint -- --watch"
+    "lint:watch": "npm run lint -- --watch",
+    "test": "mocha --reporter progress tools/testSetup.js \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch"
   },
   "author": "Luis Gomez",
   "license": "MIT",
