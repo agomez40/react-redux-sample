@@ -4,18 +4,22 @@
 
 import 'babel-polyfill';
 import React from 'react';
-import { render } from 'react-dom';
-import { Router, browserHistory } from 'react-router';
+import {render} from 'react-dom';
+import {Router, browserHistory} from 'react-router';
 import routes from './routes';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import configureStore from './store/configureStore';
+import {Provider} from 'react-redux';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin();
 
-// Render the main app react component into the app div.
-// For more details see: https://facebook.github.io/react/docs/top-level-api.html#react.render
+const store = configureStore();
+
 render(
-    <Router history={browserHistory} routes={routes} />,
+    <Provider store={store}>
+        <Router history={browserHistory} routes={routes}/>
+    </Provider>,
     document.getElementById('app')
 );
