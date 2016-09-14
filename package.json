@@ -2,8 +2,8 @@
   "name": "react-redux-demo",
   "version": "1.0.0",
   "description": "React and Redux demo application",
-  "scripts":{
-    "prestart":"babel-node tools/startMessage.js",
+  "scripts": {
+    "prestart": "babel-node tools/startMessage.js",
     "start": "npm-run-all --parallel start:server lint:watch test:watch",
     "start:server": "babel-node tools/server.js",
     "lint": "node_modules/.bin/esw webpack.config.* src tools",
@@ -33,6 +33,7 @@
     "babel-preset-es2015": "^6.14.0",
     "babel-preset-react": "^6.11.1",
     "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-1": "^6.13.0",
     "babel-register": "^6.14.0",
     "cheerio": "^0.22.0",
     "colors": "^1.1.2",
