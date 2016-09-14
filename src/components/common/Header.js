@@ -25,7 +25,8 @@ class Header extends React.Component {
                 <AppBar
                     title="Pluralsight Administration"
                     iconClassNameRight="muidocs-icon-navigation-expand-more"
-                    onLeftIconButtonTouchTap={this.handleToggle} />
+                    onLeftIconButtonTouchTap={this.handleToggle}
+                    style={{ margin: 0 }}/>
                 <Drawer open={this.state.open}>
                     <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/" />}>Home</MenuItem>
                     <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/courses"/>}>About</MenuItem>
