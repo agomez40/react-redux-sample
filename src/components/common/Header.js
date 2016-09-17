@@ -7,6 +7,25 @@ import {Link, IndexLink} from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import MenuItem from 'material-ui/MenuItem';
 import Drawer from 'material-ui/Drawer';
+import {spacing, typography, zIndex} from 'material-ui/styles';
+import {cyan500} from 'material-ui/styles/colors';
+
+const styles = {
+    logo: {
+        cursor: 'pointer',
+        fontSize: 24,
+        color: typography.textFullWhite,
+        lineHeight: `${spacing.desktopKeylineIncrement}px`,
+        fontWeight: typography.fontWeightLight,
+        backgroundColor: cyan500,
+        paddingLeft: spacing.desktopGutter,
+        marginBottom: 8,
+    },
+    version: {
+        paddingLeft: spacing.desktopGutterLess,
+        fontSize: 16,
+    }
+};
 
 class Header extends React.Component {
 
@@ -26,9 +45,12 @@ class Header extends React.Component {
                     title="Pluralsight Administration"
                     iconClassNameRight="muidocs-icon-navigation-expand-more"
                     onLeftIconButtonTouchTap={this.handleToggle}
-                    style={{ margin: 0 }}/>
-                <Drawer open={this.state.open}>
-                    <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/" />}>Home</MenuItem>
+                    style={{margin: 0}}/>
+                <Drawer docked={false} open={this.state.open} onRequestChange={(open) => this.setState({open})}>
+                    <div style={styles.logo} onTouchTap={this.handleClose}>
+                        Pluralsight
+                    </div>
+                    <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/"/>}>Home</MenuItem>
                     <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/courses"/>}>Courses</MenuItem>
                     <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/about"/>}>About</MenuItem>
                 </Drawer>
