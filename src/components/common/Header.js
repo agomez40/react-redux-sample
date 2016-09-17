@@ -29,7 +29,7 @@ class Header extends React.Component {
                     style={{ margin: 0 }}/>
                 <Drawer open={this.state.open}>
                     <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/" />}>Home</MenuItem>
-                    <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/courses"/>}>About</MenuItem>
+                    <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/courses"/>}>Courses</MenuItem>
                     <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/about"/>}>About</MenuItem>
                 </Drawer>
             </div>
