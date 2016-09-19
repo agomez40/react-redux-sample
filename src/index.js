@@ -12,6 +12,7 @@ import configureStore from './store/configureStore';
 import {Provider} from 'react-redux';
 import rootSaga from './store/sagas'
 import {loadCourses} from './actions/courseActions'
+import {loadAuthors} from './actions/authorActions'
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
@@ -20,6 +21,7 @@ injectTapEventPlugin();
 const store = configureStore();
 store.runSaga(rootSaga);
 store.dispatch(loadCourses());
+store.dispatch(loadAuthors());
 
 render(
     <Provider store={store}>
